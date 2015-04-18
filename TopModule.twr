@@ -1,0 +1,1594 @@
+--------------------------------------------------------------------------------
+Release 14.2 Trace  (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.2\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 2L
+-n 3 -fastpaths -xml TopModule.twx TopModule.ncd -o TopModule.twr TopModule.pcf
+-ucf Nexys4DDR_Master.ucf
+
+Design file:              TopModule.ncd
+Physical constraint file: TopModule.pcf
+Device,package,speed:     xc7a100t,csg324,C,-2L (ADVANCED 1.04 2012-07-09)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+================================================================================
+Timing constraint: TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_pin" 100 MHz HIGH 
+50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 0 paths analyzed, 0 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 component switching limit errors)
+ Minimum period is   4.000ns.
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_pin" 100 MHz HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 6.000ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 10.000ns
+  Low pulse: 5.000ns
+  Low pulse limit: 2.000ns (Tmmcmpw_CLKIN1_100_150)
+  Physical resource: system_clk/mmcm_adv_inst/CLKIN1
+  Logical resource: system_clk/mmcm_adv_inst/CLKIN1
+  Location pin: MMCME2_ADV_X1Y2.CLKIN1
+  Clock network: system_clk/clkin1
+--------------------------------------------------------------------------------
+Slack: 6.000ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 10.000ns
+  High pulse: 5.000ns
+  High pulse limit: 2.000ns (Tmmcmpw_CLKIN1_100_150)
+  Physical resource: system_clk/mmcm_adv_inst/CLKIN1
+  Logical resource: system_clk/mmcm_adv_inst/CLKIN1
+  Location pin: MMCME2_ADV_X1Y2.CLKIN1
+  Clock network: system_clk/clkin1
+--------------------------------------------------------------------------------
+Slack: 8.751ns (period - min period limit)
+  Period: 10.000ns
+  Min period limit: 1.249ns (800.641MHz) (Tmmcmper_CLKIN(Finmax))
+  Physical resource: system_clk/mmcm_adv_inst/CLKIN1
+  Logical resource: system_clk/mmcm_adv_inst/CLKIN1
+  Location pin: MMCME2_ADV_X1Y2.CLKIN1
+  Clock network: system_clk/clkin1
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: TS_system_clk_clkout1 = PERIOD TIMEGRP "system_clk_clkout1" 
+TS_sys_clk_pin *         0.25 HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 3104 paths analyzed, 280 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is   3.890ns.
+--------------------------------------------------------------------------------
+
+Paths for end point ClkDiv/counter3_0 (SLICE_X50Y105.SR), 32 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     36.110ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ClkDiv/counter3_5 (FF)
+  Destination:          ClkDiv/counter3_0 (FF)
+  Requirement:          40.000ns
+  Data Path Delay:      3.772ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.027ns (0.127 - 0.154)
+  Source Clock:         clk_in rising at 0.000ns
+  Destination Clock:    clk_in rising at 40.000ns
+  Clock Uncertainty:    0.091ns
+
+  Clock Uncertainty:          0.091ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.167ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: ClkDiv/counter3_5 to ClkDiv/counter3_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X50Y106.BQ     Tcko                  0.433   ClkDiv/counter3<7>
+                                                       ClkDiv/counter3_5
+    SLICE_X49Y105.A2     net (fanout=3)        0.691   ClkDiv/counter3<5>
+    SLICE_X49Y105.A      Tilo                  0.105   ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>
+                                                       ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>1
+    SLICE_X51Y108.C1     net (fanout=1)        0.891   ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>
+    SLICE_X51Y108.C      Tilo                  0.105   ClkDiv/counter3[31]_GND_2_o_equal_8_o
+                                                       ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>5
+    SLICE_X51Y108.D4     net (fanout=1)        0.345   ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>4
+    SLICE_X51Y108.D      Tilo                  0.105   ClkDiv/counter3[31]_GND_2_o_equal_8_o
+                                                       ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>7
+    SLICE_X50Y105.SR     net (fanout=8)        0.674   ClkDiv/counter3[31]_GND_2_o_equal_8_o
+    SLICE_X50Y105.CLK    Tsrck                 0.423   ClkDiv/counter3<3>
+                                                       ClkDiv/counter3_0
+    -------------------------------------------------  ---------------------------
+    Total                                      3.772ns (1.171ns logic, 2.601ns route)
+                                                       (31.0% logic, 69.0% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     36.146ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ClkDiv/counter3_2 (FF)
+  Destination:          ClkDiv/counter3_0 (FF)
+  Requirement:          40.000ns
+  Data Path Delay:      3.763ns (Levels of Logic = 3)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_in rising at 0.000ns
+  Destination Clock:    clk_in rising at 40.000ns
+  Clock Uncertainty:    0.091ns
+
+  Clock Uncertainty:          0.091ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.167ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: ClkDiv/counter3_2 to ClkDiv/counter3_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X50Y105.CQ     Tcko                  0.433   ClkDiv/counter3<3>
+                                                       ClkDiv/counter3_2
+    SLICE_X49Y105.A1     net (fanout=2)        0.682   ClkDiv/counter3<2>
+    SLICE_X49Y105.A      Tilo                  0.105   ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>
+                                                       ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>1
+    SLICE_X51Y108.C1     net (fanout=1)        0.891   ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>
+    SLICE_X51Y108.C      Tilo                  0.105   ClkDiv/counter3[31]_GND_2_o_equal_8_o
+                                                       ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>5
+    SLICE_X51Y108.D4     net (fanout=1)        0.345   ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>4
+    SLICE_X51Y108.D      Tilo                  0.105   ClkDiv/counter3[31]_GND_2_o_equal_8_o
+                                                       ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>7
+    SLICE_X50Y105.SR     net (fanout=8)        0.674   ClkDiv/counter3[31]_GND_2_o_equal_8_o
+    SLICE_X50Y105.CLK    Tsrck                 0.423   ClkDiv/counter3<3>
+                                                       ClkDiv/counter3_0
+    -------------------------------------------------  ---------------------------
+    Total                                      3.763ns (1.171ns logic, 2.592ns route)
+                                                       (31.1% logic, 68.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     36.167ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ClkDiv/counter3_7 (FF)
+  Destination:          ClkDiv/counter3_0 (FF)
+  Requirement:          40.000ns
+  Data Path Delay:      3.715ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.027ns (0.127 - 0.154)
+  Source Clock:         clk_in rising at 0.000ns
+  Destination Clock:    clk_in rising at 40.000ns
+  Clock Uncertainty:    0.091ns
+
+  Clock Uncertainty:          0.091ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.167ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: ClkDiv/counter3_7 to ClkDiv/counter3_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X50Y106.DQ     Tcko                  0.433   ClkDiv/counter3<7>
+                                                       ClkDiv/counter3_7
+    SLICE_X51Y109.D3     net (fanout=3)        0.902   ClkDiv/counter3<7>
+    SLICE_X51Y109.D      Tilo                  0.105   NewClk
+                                                       ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>3
+    SLICE_X51Y108.C3     net (fanout=1)        0.623   ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>2
+    SLICE_X51Y108.C      Tilo                  0.105   ClkDiv/counter3[31]_GND_2_o_equal_8_o
+                                                       ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>5
+    SLICE_X51Y108.D4     net (fanout=1)        0.345   ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>4
+    SLICE_X51Y108.D      Tilo                  0.105   ClkDiv/counter3[31]_GND_2_o_equal_8_o
+                                                       ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>7
+    SLICE_X50Y105.SR     net (fanout=8)        0.674   ClkDiv/counter3[31]_GND_2_o_equal_8_o
+    SLICE_X50Y105.CLK    Tsrck                 0.423   ClkDiv/counter3<3>
+                                                       ClkDiv/counter3_0
+    -------------------------------------------------  ---------------------------
+    Total                                      3.715ns (1.171ns logic, 2.544ns route)
+                                                       (31.5% logic, 68.5% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point ClkDiv/counter3_1 (SLICE_X50Y105.SR), 32 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     36.110ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ClkDiv/counter3_5 (FF)
+  Destination:          ClkDiv/counter3_1 (FF)
+  Requirement:          40.000ns
+  Data Path Delay:      3.772ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.027ns (0.127 - 0.154)
+  Source Clock:         clk_in rising at 0.000ns
+  Destination Clock:    clk_in rising at 40.000ns
+  Clock Uncertainty:    0.091ns
+
+  Clock Uncertainty:          0.091ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.167ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: ClkDiv/counter3_5 to ClkDiv/counter3_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X50Y106.BQ     Tcko                  0.433   ClkDiv/counter3<7>
+                                                       ClkDiv/counter3_5
+    SLICE_X49Y105.A2     net (fanout=3)        0.691   ClkDiv/counter3<5>
+    SLICE_X49Y105.A      Tilo                  0.105   ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>
+                                                       ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>1
+    SLICE_X51Y108.C1     net (fanout=1)        0.891   ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>
+    SLICE_X51Y108.C      Tilo                  0.105   ClkDiv/counter3[31]_GND_2_o_equal_8_o
+                                                       ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>5
+    SLICE_X51Y108.D4     net (fanout=1)        0.345   ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>4
+    SLICE_X51Y108.D      Tilo                  0.105   ClkDiv/counter3[31]_GND_2_o_equal_8_o
+                                                       ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>7
+    SLICE_X50Y105.SR     net (fanout=8)        0.674   ClkDiv/counter3[31]_GND_2_o_equal_8_o
+    SLICE_X50Y105.CLK    Tsrck                 0.423   ClkDiv/counter3<3>
+                                                       ClkDiv/counter3_1
+    -------------------------------------------------  ---------------------------
+    Total                                      3.772ns (1.171ns logic, 2.601ns route)
+                                                       (31.0% logic, 69.0% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     36.146ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ClkDiv/counter3_2 (FF)
+  Destination:          ClkDiv/counter3_1 (FF)
+  Requirement:          40.000ns
+  Data Path Delay:      3.763ns (Levels of Logic = 3)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_in rising at 0.000ns
+  Destination Clock:    clk_in rising at 40.000ns
+  Clock Uncertainty:    0.091ns
+
+  Clock Uncertainty:          0.091ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.167ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: ClkDiv/counter3_2 to ClkDiv/counter3_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X50Y105.CQ     Tcko                  0.433   ClkDiv/counter3<3>
+                                                       ClkDiv/counter3_2
+    SLICE_X49Y105.A1     net (fanout=2)        0.682   ClkDiv/counter3<2>
+    SLICE_X49Y105.A      Tilo                  0.105   ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>
+                                                       ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>1
+    SLICE_X51Y108.C1     net (fanout=1)        0.891   ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>
+    SLICE_X51Y108.C      Tilo                  0.105   ClkDiv/counter3[31]_GND_2_o_equal_8_o
+                                                       ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>5
+    SLICE_X51Y108.D4     net (fanout=1)        0.345   ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>4
+    SLICE_X51Y108.D      Tilo                  0.105   ClkDiv/counter3[31]_GND_2_o_equal_8_o
+                                                       ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>7
+    SLICE_X50Y105.SR     net (fanout=8)        0.674   ClkDiv/counter3[31]_GND_2_o_equal_8_o
+    SLICE_X50Y105.CLK    Tsrck                 0.423   ClkDiv/counter3<3>
+                                                       ClkDiv/counter3_1
+    -------------------------------------------------  ---------------------------
+    Total                                      3.763ns (1.171ns logic, 2.592ns route)
+                                                       (31.1% logic, 68.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     36.167ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ClkDiv/counter3_7 (FF)
+  Destination:          ClkDiv/counter3_1 (FF)
+  Requirement:          40.000ns
+  Data Path Delay:      3.715ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.027ns (0.127 - 0.154)
+  Source Clock:         clk_in rising at 0.000ns
+  Destination Clock:    clk_in rising at 40.000ns
+  Clock Uncertainty:    0.091ns
+
+  Clock Uncertainty:          0.091ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.167ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: ClkDiv/counter3_7 to ClkDiv/counter3_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X50Y106.DQ     Tcko                  0.433   ClkDiv/counter3<7>
+                                                       ClkDiv/counter3_7
+    SLICE_X51Y109.D3     net (fanout=3)        0.902   ClkDiv/counter3<7>
+    SLICE_X51Y109.D      Tilo                  0.105   NewClk
+                                                       ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>3
+    SLICE_X51Y108.C3     net (fanout=1)        0.623   ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>2
+    SLICE_X51Y108.C      Tilo                  0.105   ClkDiv/counter3[31]_GND_2_o_equal_8_o
+                                                       ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>5
+    SLICE_X51Y108.D4     net (fanout=1)        0.345   ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>4
+    SLICE_X51Y108.D      Tilo                  0.105   ClkDiv/counter3[31]_GND_2_o_equal_8_o
+                                                       ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>7
+    SLICE_X50Y105.SR     net (fanout=8)        0.674   ClkDiv/counter3[31]_GND_2_o_equal_8_o
+    SLICE_X50Y105.CLK    Tsrck                 0.423   ClkDiv/counter3<3>
+                                                       ClkDiv/counter3_1
+    -------------------------------------------------  ---------------------------
+    Total                                      3.715ns (1.171ns logic, 2.544ns route)
+                                                       (31.5% logic, 68.5% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point ClkDiv/counter3_2 (SLICE_X50Y105.SR), 32 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     36.110ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ClkDiv/counter3_5 (FF)
+  Destination:          ClkDiv/counter3_2 (FF)
+  Requirement:          40.000ns
+  Data Path Delay:      3.772ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.027ns (0.127 - 0.154)
+  Source Clock:         clk_in rising at 0.000ns
+  Destination Clock:    clk_in rising at 40.000ns
+  Clock Uncertainty:    0.091ns
+
+  Clock Uncertainty:          0.091ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.167ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: ClkDiv/counter3_5 to ClkDiv/counter3_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X50Y106.BQ     Tcko                  0.433   ClkDiv/counter3<7>
+                                                       ClkDiv/counter3_5
+    SLICE_X49Y105.A2     net (fanout=3)        0.691   ClkDiv/counter3<5>
+    SLICE_X49Y105.A      Tilo                  0.105   ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>
+                                                       ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>1
+    SLICE_X51Y108.C1     net (fanout=1)        0.891   ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>
+    SLICE_X51Y108.C      Tilo                  0.105   ClkDiv/counter3[31]_GND_2_o_equal_8_o
+                                                       ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>5
+    SLICE_X51Y108.D4     net (fanout=1)        0.345   ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>4
+    SLICE_X51Y108.D      Tilo                  0.105   ClkDiv/counter3[31]_GND_2_o_equal_8_o
+                                                       ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>7
+    SLICE_X50Y105.SR     net (fanout=8)        0.674   ClkDiv/counter3[31]_GND_2_o_equal_8_o
+    SLICE_X50Y105.CLK    Tsrck                 0.423   ClkDiv/counter3<3>
+                                                       ClkDiv/counter3_2
+    -------------------------------------------------  ---------------------------
+    Total                                      3.772ns (1.171ns logic, 2.601ns route)
+                                                       (31.0% logic, 69.0% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     36.146ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ClkDiv/counter3_2 (FF)
+  Destination:          ClkDiv/counter3_2 (FF)
+  Requirement:          40.000ns
+  Data Path Delay:      3.763ns (Levels of Logic = 3)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_in rising at 0.000ns
+  Destination Clock:    clk_in rising at 40.000ns
+  Clock Uncertainty:    0.091ns
+
+  Clock Uncertainty:          0.091ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.167ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: ClkDiv/counter3_2 to ClkDiv/counter3_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X50Y105.CQ     Tcko                  0.433   ClkDiv/counter3<3>
+                                                       ClkDiv/counter3_2
+    SLICE_X49Y105.A1     net (fanout=2)        0.682   ClkDiv/counter3<2>
+    SLICE_X49Y105.A      Tilo                  0.105   ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>
+                                                       ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>1
+    SLICE_X51Y108.C1     net (fanout=1)        0.891   ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>
+    SLICE_X51Y108.C      Tilo                  0.105   ClkDiv/counter3[31]_GND_2_o_equal_8_o
+                                                       ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>5
+    SLICE_X51Y108.D4     net (fanout=1)        0.345   ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>4
+    SLICE_X51Y108.D      Tilo                  0.105   ClkDiv/counter3[31]_GND_2_o_equal_8_o
+                                                       ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>7
+    SLICE_X50Y105.SR     net (fanout=8)        0.674   ClkDiv/counter3[31]_GND_2_o_equal_8_o
+    SLICE_X50Y105.CLK    Tsrck                 0.423   ClkDiv/counter3<3>
+                                                       ClkDiv/counter3_2
+    -------------------------------------------------  ---------------------------
+    Total                                      3.763ns (1.171ns logic, 2.592ns route)
+                                                       (31.1% logic, 68.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     36.167ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               ClkDiv/counter3_7 (FF)
+  Destination:          ClkDiv/counter3_2 (FF)
+  Requirement:          40.000ns
+  Data Path Delay:      3.715ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.027ns (0.127 - 0.154)
+  Source Clock:         clk_in rising at 0.000ns
+  Destination Clock:    clk_in rising at 40.000ns
+  Clock Uncertainty:    0.091ns
+
+  Clock Uncertainty:          0.091ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.167ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: ClkDiv/counter3_7 to ClkDiv/counter3_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X50Y106.DQ     Tcko                  0.433   ClkDiv/counter3<7>
+                                                       ClkDiv/counter3_7
+    SLICE_X51Y109.D3     net (fanout=3)        0.902   ClkDiv/counter3<7>
+    SLICE_X51Y109.D      Tilo                  0.105   NewClk
+                                                       ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>3
+    SLICE_X51Y108.C3     net (fanout=1)        0.623   ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>2
+    SLICE_X51Y108.C      Tilo                  0.105   ClkDiv/counter3[31]_GND_2_o_equal_8_o
+                                                       ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>5
+    SLICE_X51Y108.D4     net (fanout=1)        0.345   ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>4
+    SLICE_X51Y108.D      Tilo                  0.105   ClkDiv/counter3[31]_GND_2_o_equal_8_o
+                                                       ClkDiv/counter3[31]_GND_2_o_equal_8_o<31>7
+    SLICE_X50Y105.SR     net (fanout=8)        0.674   ClkDiv/counter3[31]_GND_2_o_equal_8_o
+    SLICE_X50Y105.CLK    Tsrck                 0.423   ClkDiv/counter3<3>
+                                                       ClkDiv/counter3_2
+    -------------------------------------------------  ---------------------------
+    Total                                      3.715ns (1.171ns logic, 2.544ns route)
+                                                       (31.5% logic, 68.5% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: TS_system_clk_clkout1 = PERIOD TIMEGRP "system_clk_clkout1" TS_sys_clk_pin *
+        0.25 HIGH 50%;
+--------------------------------------------------------------------------------
+
+Paths for end point ClkDiv/counter1_4 (SLICE_X51Y100.CIN), 4 paths
+--------------------------------------------------------------------------------
+Slack (hold path):      0.198ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               ClkDiv/counter1_3 (FF)
+  Destination:          ClkDiv/counter1_4 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.429ns (Levels of Logic = 2)
+  Clock Path Skew:      0.231ns (0.806 - 0.575)
+  Source Clock:         clk_in rising at 40.000ns
+  Destination Clock:    clk_in rising at 40.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: ClkDiv/counter1_3 to ClkDiv/counter1_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X51Y99.DQ      Tcko                  0.141   ClkDiv/counter1<3>
+                                                       ClkDiv/counter1_3
+    SLICE_X51Y99.D3      net (fanout=2)        0.177   ClkDiv/counter1<3>
+    SLICE_X51Y99.COUT    Topcyd                0.160   ClkDiv/counter1<3>
+                                                       ClkDiv/counter1<3>_rt
+                                                       ClkDiv/Mcount_counter1_cy<3>
+    SLICE_X51Y100.CIN    net (fanout=1)        0.001   ClkDiv/Mcount_counter1_cy<3>
+    SLICE_X51Y100.CLK    Tckcin      (-Th)     0.050   ClkDiv/counter1<7>
+                                                       ClkDiv/Mcount_counter1_cy<7>
+                                                       ClkDiv/counter1_4
+    -------------------------------------------------  ---------------------------
+    Total                                      0.429ns (0.251ns logic, 0.178ns route)
+                                                       (58.5% logic, 41.5% route)
+
+--------------------------------------------------------------------------------
+Slack (hold path):      0.236ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               ClkDiv/counter1_0 (FF)
+  Destination:          ClkDiv/counter1_4 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.467ns (Levels of Logic = 2)
+  Clock Path Skew:      0.231ns (0.806 - 0.575)
+  Source Clock:         clk_in rising at 40.000ns
+  Destination Clock:    clk_in rising at 40.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: ClkDiv/counter1_0 to ClkDiv/counter1_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X51Y99.AQ      Tcko                  0.141   ClkDiv/counter1<3>
+                                                       ClkDiv/counter1_0
+    SLICE_X51Y99.A3      net (fanout=2)        0.178   ClkDiv/counter1<0>
+    SLICE_X51Y99.COUT    Topcya                0.197   ClkDiv/counter1<3>
+                                                       ClkDiv/Mcount_counter1_lut<0>_INV_0
+                                                       ClkDiv/Mcount_counter1_cy<3>
+    SLICE_X51Y100.CIN    net (fanout=1)        0.001   ClkDiv/Mcount_counter1_cy<3>
+    SLICE_X51Y100.CLK    Tckcin      (-Th)     0.050   ClkDiv/counter1<7>
+                                                       ClkDiv/Mcount_counter1_cy<7>
+                                                       ClkDiv/counter1_4
+    -------------------------------------------------  ---------------------------
+    Total                                      0.467ns (0.288ns logic, 0.179ns route)
+                                                       (61.7% logic, 38.3% route)
+
+--------------------------------------------------------------------------------
+Slack (hold path):      0.263ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               ClkDiv/counter1_2 (FF)
+  Destination:          ClkDiv/counter1_4 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.494ns (Levels of Logic = 2)
+  Clock Path Skew:      0.231ns (0.806 - 0.575)
+  Source Clock:         clk_in rising at 40.000ns
+  Destination Clock:    clk_in rising at 40.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: ClkDiv/counter1_2 to ClkDiv/counter1_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X51Y99.CQ      Tcko                  0.141   ClkDiv/counter1<3>
+                                                       ClkDiv/counter1_2
+    SLICE_X51Y99.C2      net (fanout=2)        0.242   ClkDiv/counter1<2>
+    SLICE_X51Y99.COUT    Topcyc                0.160   ClkDiv/counter1<3>
+                                                       ClkDiv/counter1<2>_rt
+                                                       ClkDiv/Mcount_counter1_cy<3>
+    SLICE_X51Y100.CIN    net (fanout=1)        0.001   ClkDiv/Mcount_counter1_cy<3>
+    SLICE_X51Y100.CLK    Tckcin      (-Th)     0.050   ClkDiv/counter1<7>
+                                                       ClkDiv/Mcount_counter1_cy<7>
+                                                       ClkDiv/counter1_4
+    -------------------------------------------------  ---------------------------
+    Total                                      0.494ns (0.251ns logic, 0.243ns route)
+                                                       (50.8% logic, 49.2% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point ClkDiv/counter1_6 (SLICE_X51Y100.CIN), 4 paths
+--------------------------------------------------------------------------------
+Slack (hold path):      0.208ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               ClkDiv/counter1_3 (FF)
+  Destination:          ClkDiv/counter1_6 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.439ns (Levels of Logic = 2)
+  Clock Path Skew:      0.231ns (0.806 - 0.575)
+  Source Clock:         clk_in rising at 40.000ns
+  Destination Clock:    clk_in rising at 40.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: ClkDiv/counter1_3 to ClkDiv/counter1_6
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X51Y99.DQ      Tcko                  0.141   ClkDiv/counter1<3>
+                                                       ClkDiv/counter1_3
+    SLICE_X51Y99.D3      net (fanout=2)        0.177   ClkDiv/counter1<3>
+    SLICE_X51Y99.COUT    Topcyd                0.160   ClkDiv/counter1<3>
+                                                       ClkDiv/counter1<3>_rt
+                                                       ClkDiv/Mcount_counter1_cy<3>
+    SLICE_X51Y100.CIN    net (fanout=1)        0.001   ClkDiv/Mcount_counter1_cy<3>
+    SLICE_X51Y100.CLK    Tckcin      (-Th)     0.040   ClkDiv/counter1<7>
+                                                       ClkDiv/Mcount_counter1_cy<7>
+                                                       ClkDiv/counter1_6
+    -------------------------------------------------  ---------------------------
+    Total                                      0.439ns (0.261ns logic, 0.178ns route)
+                                                       (59.5% logic, 40.5% route)
+
+--------------------------------------------------------------------------------
+Slack (hold path):      0.246ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               ClkDiv/counter1_0 (FF)
+  Destination:          ClkDiv/counter1_6 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.477ns (Levels of Logic = 2)
+  Clock Path Skew:      0.231ns (0.806 - 0.575)
+  Source Clock:         clk_in rising at 40.000ns
+  Destination Clock:    clk_in rising at 40.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: ClkDiv/counter1_0 to ClkDiv/counter1_6
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X51Y99.AQ      Tcko                  0.141   ClkDiv/counter1<3>
+                                                       ClkDiv/counter1_0
+    SLICE_X51Y99.A3      net (fanout=2)        0.178   ClkDiv/counter1<0>
+    SLICE_X51Y99.COUT    Topcya                0.197   ClkDiv/counter1<3>
+                                                       ClkDiv/Mcount_counter1_lut<0>_INV_0
+                                                       ClkDiv/Mcount_counter1_cy<3>
+    SLICE_X51Y100.CIN    net (fanout=1)        0.001   ClkDiv/Mcount_counter1_cy<3>
+    SLICE_X51Y100.CLK    Tckcin      (-Th)     0.040   ClkDiv/counter1<7>
+                                                       ClkDiv/Mcount_counter1_cy<7>
+                                                       ClkDiv/counter1_6
+    -------------------------------------------------  ---------------------------
+    Total                                      0.477ns (0.298ns logic, 0.179ns route)
+                                                       (62.5% logic, 37.5% route)
+
+--------------------------------------------------------------------------------
+Slack (hold path):      0.273ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               ClkDiv/counter1_2 (FF)
+  Destination:          ClkDiv/counter1_6 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.504ns (Levels of Logic = 2)
+  Clock Path Skew:      0.231ns (0.806 - 0.575)
+  Source Clock:         clk_in rising at 40.000ns
+  Destination Clock:    clk_in rising at 40.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: ClkDiv/counter1_2 to ClkDiv/counter1_6
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X51Y99.CQ      Tcko                  0.141   ClkDiv/counter1<3>
+                                                       ClkDiv/counter1_2
+    SLICE_X51Y99.C2      net (fanout=2)        0.242   ClkDiv/counter1<2>
+    SLICE_X51Y99.COUT    Topcyc                0.160   ClkDiv/counter1<3>
+                                                       ClkDiv/counter1<2>_rt
+                                                       ClkDiv/Mcount_counter1_cy<3>
+    SLICE_X51Y100.CIN    net (fanout=1)        0.001   ClkDiv/Mcount_counter1_cy<3>
+    SLICE_X51Y100.CLK    Tckcin      (-Th)     0.040   ClkDiv/counter1<7>
+                                                       ClkDiv/Mcount_counter1_cy<7>
+                                                       ClkDiv/counter1_6
+    -------------------------------------------------  ---------------------------
+    Total                                      0.504ns (0.261ns logic, 0.243ns route)
+                                                       (51.8% logic, 48.2% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point ClkDiv/counter1_5 (SLICE_X51Y100.CIN), 4 paths
+--------------------------------------------------------------------------------
+Slack (hold path):      0.233ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               ClkDiv/counter1_3 (FF)
+  Destination:          ClkDiv/counter1_5 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.464ns (Levels of Logic = 2)
+  Clock Path Skew:      0.231ns (0.806 - 0.575)
+  Source Clock:         clk_in rising at 40.000ns
+  Destination Clock:    clk_in rising at 40.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: ClkDiv/counter1_3 to ClkDiv/counter1_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X51Y99.DQ      Tcko                  0.141   ClkDiv/counter1<3>
+                                                       ClkDiv/counter1_3
+    SLICE_X51Y99.D3      net (fanout=2)        0.177   ClkDiv/counter1<3>
+    SLICE_X51Y99.COUT    Topcyd                0.160   ClkDiv/counter1<3>
+                                                       ClkDiv/counter1<3>_rt
+                                                       ClkDiv/Mcount_counter1_cy<3>
+    SLICE_X51Y100.CIN    net (fanout=1)        0.001   ClkDiv/Mcount_counter1_cy<3>
+    SLICE_X51Y100.CLK    Tckcin      (-Th)     0.015   ClkDiv/counter1<7>
+                                                       ClkDiv/Mcount_counter1_cy<7>
+                                                       ClkDiv/counter1_5
+    -------------------------------------------------  ---------------------------
+    Total                                      0.464ns (0.286ns logic, 0.178ns route)
+                                                       (61.6% logic, 38.4% route)
+
+--------------------------------------------------------------------------------
+Slack (hold path):      0.271ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               ClkDiv/counter1_0 (FF)
+  Destination:          ClkDiv/counter1_5 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.502ns (Levels of Logic = 2)
+  Clock Path Skew:      0.231ns (0.806 - 0.575)
+  Source Clock:         clk_in rising at 40.000ns
+  Destination Clock:    clk_in rising at 40.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: ClkDiv/counter1_0 to ClkDiv/counter1_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X51Y99.AQ      Tcko                  0.141   ClkDiv/counter1<3>
+                                                       ClkDiv/counter1_0
+    SLICE_X51Y99.A3      net (fanout=2)        0.178   ClkDiv/counter1<0>
+    SLICE_X51Y99.COUT    Topcya                0.197   ClkDiv/counter1<3>
+                                                       ClkDiv/Mcount_counter1_lut<0>_INV_0
+                                                       ClkDiv/Mcount_counter1_cy<3>
+    SLICE_X51Y100.CIN    net (fanout=1)        0.001   ClkDiv/Mcount_counter1_cy<3>
+    SLICE_X51Y100.CLK    Tckcin      (-Th)     0.015   ClkDiv/counter1<7>
+                                                       ClkDiv/Mcount_counter1_cy<7>
+                                                       ClkDiv/counter1_5
+    -------------------------------------------------  ---------------------------
+    Total                                      0.502ns (0.323ns logic, 0.179ns route)
+                                                       (64.3% logic, 35.7% route)
+
+--------------------------------------------------------------------------------
+Slack (hold path):      0.298ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               ClkDiv/counter1_2 (FF)
+  Destination:          ClkDiv/counter1_5 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.529ns (Levels of Logic = 2)
+  Clock Path Skew:      0.231ns (0.806 - 0.575)
+  Source Clock:         clk_in rising at 40.000ns
+  Destination Clock:    clk_in rising at 40.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: ClkDiv/counter1_2 to ClkDiv/counter1_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X51Y99.CQ      Tcko                  0.141   ClkDiv/counter1<3>
+                                                       ClkDiv/counter1_2
+    SLICE_X51Y99.C2      net (fanout=2)        0.242   ClkDiv/counter1<2>
+    SLICE_X51Y99.COUT    Topcyc                0.160   ClkDiv/counter1<3>
+                                                       ClkDiv/counter1<2>_rt
+                                                       ClkDiv/Mcount_counter1_cy<3>
+    SLICE_X51Y100.CIN    net (fanout=1)        0.001   ClkDiv/Mcount_counter1_cy<3>
+    SLICE_X51Y100.CLK    Tckcin      (-Th)     0.015   ClkDiv/counter1<7>
+                                                       ClkDiv/Mcount_counter1_cy<7>
+                                                       ClkDiv/counter1_5
+    -------------------------------------------------  ---------------------------
+    Total                                      0.529ns (0.286ns logic, 0.243ns route)
+                                                       (54.1% logic, 45.9% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_system_clk_clkout1 = PERIOD TIMEGRP "system_clk_clkout1" TS_sys_clk_pin *
+        0.25 HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 38.182ns (period - min period limit)
+  Period: 40.000ns
+  Min period limit: 1.818ns (550.055MHz) (Tbcper_I(Fmax))
+  Physical resource: system_clk/clkout2_buf/I0
+  Logical resource: system_clk/clkout2_buf/I0
+  Location pin: BUFGCTRL_X0Y31.I0
+  Clock network: system_clk/clkout1
+--------------------------------------------------------------------------------
+Slack: 39.000ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 40.000ns
+  Low pulse: 20.000ns
+  Low pulse limit: 0.500ns (Tcl)
+  Physical resource: ClkDiv/counter3<3>/CLK
+  Logical resource: ClkDiv/counter3_0/CK
+  Location pin: SLICE_X50Y105.CLK
+  Clock network: clk_in
+--------------------------------------------------------------------------------
+Slack: 39.000ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 40.000ns
+  High pulse: 20.000ns
+  High pulse limit: 0.500ns (Tch)
+  Physical resource: ClkDiv/counter3<3>/CLK
+  Logical resource: ClkDiv/counter3_0/CK
+  Location pin: SLICE_X50Y105.CLK
+  Clock network: clk_in
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: TS_system_clk_clkout0 = PERIOD TIMEGRP "system_clk_clkout0" 
+TS_sys_clk_pin         HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 525 paths analyzed, 98 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is   3.282ns.
+--------------------------------------------------------------------------------
+
+Paths for end point vga0/vgacolor_port_map/vmov_1 (SLICE_X53Y113.SR), 18 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     6.718ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vga0/vgacolor_port_map/vmov_8 (FF)
+  Destination:          vga0/vgacolor_port_map/vmov_1 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      3.180ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.028ns (0.123 - 0.151)
+  Source Clock:         vga_clk rising at 0.000ns
+  Destination Clock:    vga_clk rising at 10.000ns
+  Clock Uncertainty:    0.074ns
+
+  Clock Uncertainty:          0.074ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.129ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vga0/vgacolor_port_map/vmov_8 to vga0/vgacolor_port_map/vmov_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X52Y112.AQ     Tcko                  0.379   vga0/vgacolor_port_map/vmov<9>
+                                                       vga0/vgacolor_port_map/vmov_8
+    SLICE_X52Y115.C1     net (fanout=8)        0.846   vga0/vgacolor_port_map/vmov<8>
+    SLICE_X52Y115.C      Tilo                  0.105   vga0/vgacolor_port_map/vmov1<9>
+                                                       vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o1
+    SLICE_X52Y115.D4     net (fanout=1)        0.345   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o1
+    SLICE_X52Y115.DMUX   Tilo                  0.293   vga0/vgacolor_port_map/vmov1<9>
+                                                       vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o2
+    SLICE_X54Y113.C6     net (fanout=1)        0.348   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o2
+    SLICE_X54Y113.C      Tilo                  0.105   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o3
+                                                       vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o4
+    SLICE_X53Y113.SR     net (fanout=3)        0.407   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o
+    SLICE_X53Y113.CLK    Tsrck                 0.352   vga0/vgacolor_port_map/vmov<0>
+                                                       vga0/vgacolor_port_map/vmov_1
+    -------------------------------------------------  ---------------------------
+    Total                                      3.180ns (1.234ns logic, 1.946ns route)
+                                                       (38.8% logic, 61.2% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     6.744ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vga0/vgacolor_port_map/vmov_1 (FF)
+  Destination:          vga0/vgacolor_port_map/vmov_1 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      3.182ns (Levels of Logic = 3)
+  Clock Path Skew:      0.000ns
+  Source Clock:         vga_clk rising at 0.000ns
+  Destination Clock:    vga_clk rising at 10.000ns
+  Clock Uncertainty:    0.074ns
+
+  Clock Uncertainty:          0.074ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.129ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vga0/vgacolor_port_map/vmov_1 to vga0/vgacolor_port_map/vmov_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X53Y113.AQ     Tcko                  0.379   vga0/vgacolor_port_map/vmov<0>
+                                                       vga0/vgacolor_port_map/vmov_1
+    SLICE_X52Y115.C3     net (fanout=18)       0.848   vga0/vgacolor_port_map/vmov<1>
+    SLICE_X52Y115.C      Tilo                  0.105   vga0/vgacolor_port_map/vmov1<9>
+                                                       vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o1
+    SLICE_X52Y115.D4     net (fanout=1)        0.345   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o1
+    SLICE_X52Y115.DMUX   Tilo                  0.293   vga0/vgacolor_port_map/vmov1<9>
+                                                       vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o2
+    SLICE_X54Y113.C6     net (fanout=1)        0.348   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o2
+    SLICE_X54Y113.C      Tilo                  0.105   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o3
+                                                       vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o4
+    SLICE_X53Y113.SR     net (fanout=3)        0.407   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o
+    SLICE_X53Y113.CLK    Tsrck                 0.352   vga0/vgacolor_port_map/vmov<0>
+                                                       vga0/vgacolor_port_map/vmov_1
+    -------------------------------------------------  ---------------------------
+    Total                                      3.182ns (1.234ns logic, 1.948ns route)
+                                                       (38.8% logic, 61.2% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     6.808ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vga0/vgacolor_port_map/vmov_0 (FF)
+  Destination:          vga0/vgacolor_port_map/vmov_1 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      3.118ns (Levels of Logic = 3)
+  Clock Path Skew:      0.000ns
+  Source Clock:         vga_clk rising at 0.000ns
+  Destination Clock:    vga_clk rising at 10.000ns
+  Clock Uncertainty:    0.074ns
+
+  Clock Uncertainty:          0.074ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.129ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vga0/vgacolor_port_map/vmov_0 to vga0/vgacolor_port_map/vmov_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X53Y113.DQ     Tcko                  0.379   vga0/vgacolor_port_map/vmov<0>
+                                                       vga0/vgacolor_port_map/vmov_0
+    SLICE_X52Y115.C2     net (fanout=23)       0.784   vga0/vgacolor_port_map/vmov<0>
+    SLICE_X52Y115.C      Tilo                  0.105   vga0/vgacolor_port_map/vmov1<9>
+                                                       vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o1
+    SLICE_X52Y115.D4     net (fanout=1)        0.345   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o1
+    SLICE_X52Y115.DMUX   Tilo                  0.293   vga0/vgacolor_port_map/vmov1<9>
+                                                       vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o2
+    SLICE_X54Y113.C6     net (fanout=1)        0.348   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o2
+    SLICE_X54Y113.C      Tilo                  0.105   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o3
+                                                       vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o4
+    SLICE_X53Y113.SR     net (fanout=3)        0.407   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o
+    SLICE_X53Y113.CLK    Tsrck                 0.352   vga0/vgacolor_port_map/vmov<0>
+                                                       vga0/vgacolor_port_map/vmov_1
+    -------------------------------------------------  ---------------------------
+    Total                                      3.118ns (1.234ns logic, 1.884ns route)
+                                                       (39.6% logic, 60.4% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point vga0/vgacolor_port_map/vmov_2 (SLICE_X53Y113.SR), 18 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     6.718ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vga0/vgacolor_port_map/vmov_8 (FF)
+  Destination:          vga0/vgacolor_port_map/vmov_2 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      3.180ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.028ns (0.123 - 0.151)
+  Source Clock:         vga_clk rising at 0.000ns
+  Destination Clock:    vga_clk rising at 10.000ns
+  Clock Uncertainty:    0.074ns
+
+  Clock Uncertainty:          0.074ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.129ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vga0/vgacolor_port_map/vmov_8 to vga0/vgacolor_port_map/vmov_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X52Y112.AQ     Tcko                  0.379   vga0/vgacolor_port_map/vmov<9>
+                                                       vga0/vgacolor_port_map/vmov_8
+    SLICE_X52Y115.C1     net (fanout=8)        0.846   vga0/vgacolor_port_map/vmov<8>
+    SLICE_X52Y115.C      Tilo                  0.105   vga0/vgacolor_port_map/vmov1<9>
+                                                       vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o1
+    SLICE_X52Y115.D4     net (fanout=1)        0.345   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o1
+    SLICE_X52Y115.DMUX   Tilo                  0.293   vga0/vgacolor_port_map/vmov1<9>
+                                                       vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o2
+    SLICE_X54Y113.C6     net (fanout=1)        0.348   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o2
+    SLICE_X54Y113.C      Tilo                  0.105   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o3
+                                                       vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o4
+    SLICE_X53Y113.SR     net (fanout=3)        0.407   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o
+    SLICE_X53Y113.CLK    Tsrck                 0.352   vga0/vgacolor_port_map/vmov<0>
+                                                       vga0/vgacolor_port_map/vmov_2
+    -------------------------------------------------  ---------------------------
+    Total                                      3.180ns (1.234ns logic, 1.946ns route)
+                                                       (38.8% logic, 61.2% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     6.744ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vga0/vgacolor_port_map/vmov_1 (FF)
+  Destination:          vga0/vgacolor_port_map/vmov_2 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      3.182ns (Levels of Logic = 3)
+  Clock Path Skew:      0.000ns
+  Source Clock:         vga_clk rising at 0.000ns
+  Destination Clock:    vga_clk rising at 10.000ns
+  Clock Uncertainty:    0.074ns
+
+  Clock Uncertainty:          0.074ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.129ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vga0/vgacolor_port_map/vmov_1 to vga0/vgacolor_port_map/vmov_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X53Y113.AQ     Tcko                  0.379   vga0/vgacolor_port_map/vmov<0>
+                                                       vga0/vgacolor_port_map/vmov_1
+    SLICE_X52Y115.C3     net (fanout=18)       0.848   vga0/vgacolor_port_map/vmov<1>
+    SLICE_X52Y115.C      Tilo                  0.105   vga0/vgacolor_port_map/vmov1<9>
+                                                       vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o1
+    SLICE_X52Y115.D4     net (fanout=1)        0.345   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o1
+    SLICE_X52Y115.DMUX   Tilo                  0.293   vga0/vgacolor_port_map/vmov1<9>
+                                                       vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o2
+    SLICE_X54Y113.C6     net (fanout=1)        0.348   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o2
+    SLICE_X54Y113.C      Tilo                  0.105   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o3
+                                                       vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o4
+    SLICE_X53Y113.SR     net (fanout=3)        0.407   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o
+    SLICE_X53Y113.CLK    Tsrck                 0.352   vga0/vgacolor_port_map/vmov<0>
+                                                       vga0/vgacolor_port_map/vmov_2
+    -------------------------------------------------  ---------------------------
+    Total                                      3.182ns (1.234ns logic, 1.948ns route)
+                                                       (38.8% logic, 61.2% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     6.808ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vga0/vgacolor_port_map/vmov_0 (FF)
+  Destination:          vga0/vgacolor_port_map/vmov_2 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      3.118ns (Levels of Logic = 3)
+  Clock Path Skew:      0.000ns
+  Source Clock:         vga_clk rising at 0.000ns
+  Destination Clock:    vga_clk rising at 10.000ns
+  Clock Uncertainty:    0.074ns
+
+  Clock Uncertainty:          0.074ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.129ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vga0/vgacolor_port_map/vmov_0 to vga0/vgacolor_port_map/vmov_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X53Y113.DQ     Tcko                  0.379   vga0/vgacolor_port_map/vmov<0>
+                                                       vga0/vgacolor_port_map/vmov_0
+    SLICE_X52Y115.C2     net (fanout=23)       0.784   vga0/vgacolor_port_map/vmov<0>
+    SLICE_X52Y115.C      Tilo                  0.105   vga0/vgacolor_port_map/vmov1<9>
+                                                       vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o1
+    SLICE_X52Y115.D4     net (fanout=1)        0.345   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o1
+    SLICE_X52Y115.DMUX   Tilo                  0.293   vga0/vgacolor_port_map/vmov1<9>
+                                                       vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o2
+    SLICE_X54Y113.C6     net (fanout=1)        0.348   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o2
+    SLICE_X54Y113.C      Tilo                  0.105   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o3
+                                                       vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o4
+    SLICE_X53Y113.SR     net (fanout=3)        0.407   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o
+    SLICE_X53Y113.CLK    Tsrck                 0.352   vga0/vgacolor_port_map/vmov<0>
+                                                       vga0/vgacolor_port_map/vmov_2
+    -------------------------------------------------  ---------------------------
+    Total                                      3.118ns (1.234ns logic, 1.884ns route)
+                                                       (39.6% logic, 60.4% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point vga0/vgacolor_port_map/vmov_3 (SLICE_X53Y113.SR), 18 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     6.718ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vga0/vgacolor_port_map/vmov_8 (FF)
+  Destination:          vga0/vgacolor_port_map/vmov_3 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      3.180ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.028ns (0.123 - 0.151)
+  Source Clock:         vga_clk rising at 0.000ns
+  Destination Clock:    vga_clk rising at 10.000ns
+  Clock Uncertainty:    0.074ns
+
+  Clock Uncertainty:          0.074ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.129ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vga0/vgacolor_port_map/vmov_8 to vga0/vgacolor_port_map/vmov_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X52Y112.AQ     Tcko                  0.379   vga0/vgacolor_port_map/vmov<9>
+                                                       vga0/vgacolor_port_map/vmov_8
+    SLICE_X52Y115.C1     net (fanout=8)        0.846   vga0/vgacolor_port_map/vmov<8>
+    SLICE_X52Y115.C      Tilo                  0.105   vga0/vgacolor_port_map/vmov1<9>
+                                                       vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o1
+    SLICE_X52Y115.D4     net (fanout=1)        0.345   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o1
+    SLICE_X52Y115.DMUX   Tilo                  0.293   vga0/vgacolor_port_map/vmov1<9>
+                                                       vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o2
+    SLICE_X54Y113.C6     net (fanout=1)        0.348   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o2
+    SLICE_X54Y113.C      Tilo                  0.105   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o3
+                                                       vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o4
+    SLICE_X53Y113.SR     net (fanout=3)        0.407   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o
+    SLICE_X53Y113.CLK    Tsrck                 0.352   vga0/vgacolor_port_map/vmov<0>
+                                                       vga0/vgacolor_port_map/vmov_3
+    -------------------------------------------------  ---------------------------
+    Total                                      3.180ns (1.234ns logic, 1.946ns route)
+                                                       (38.8% logic, 61.2% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     6.744ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vga0/vgacolor_port_map/vmov_1 (FF)
+  Destination:          vga0/vgacolor_port_map/vmov_3 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      3.182ns (Levels of Logic = 3)
+  Clock Path Skew:      0.000ns
+  Source Clock:         vga_clk rising at 0.000ns
+  Destination Clock:    vga_clk rising at 10.000ns
+  Clock Uncertainty:    0.074ns
+
+  Clock Uncertainty:          0.074ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.129ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vga0/vgacolor_port_map/vmov_1 to vga0/vgacolor_port_map/vmov_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X53Y113.AQ     Tcko                  0.379   vga0/vgacolor_port_map/vmov<0>
+                                                       vga0/vgacolor_port_map/vmov_1
+    SLICE_X52Y115.C3     net (fanout=18)       0.848   vga0/vgacolor_port_map/vmov<1>
+    SLICE_X52Y115.C      Tilo                  0.105   vga0/vgacolor_port_map/vmov1<9>
+                                                       vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o1
+    SLICE_X52Y115.D4     net (fanout=1)        0.345   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o1
+    SLICE_X52Y115.DMUX   Tilo                  0.293   vga0/vgacolor_port_map/vmov1<9>
+                                                       vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o2
+    SLICE_X54Y113.C6     net (fanout=1)        0.348   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o2
+    SLICE_X54Y113.C      Tilo                  0.105   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o3
+                                                       vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o4
+    SLICE_X53Y113.SR     net (fanout=3)        0.407   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o
+    SLICE_X53Y113.CLK    Tsrck                 0.352   vga0/vgacolor_port_map/vmov<0>
+                                                       vga0/vgacolor_port_map/vmov_3
+    -------------------------------------------------  ---------------------------
+    Total                                      3.182ns (1.234ns logic, 1.948ns route)
+                                                       (38.8% logic, 61.2% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     6.808ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vga0/vgacolor_port_map/vmov_0 (FF)
+  Destination:          vga0/vgacolor_port_map/vmov_3 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      3.118ns (Levels of Logic = 3)
+  Clock Path Skew:      0.000ns
+  Source Clock:         vga_clk rising at 0.000ns
+  Destination Clock:    vga_clk rising at 10.000ns
+  Clock Uncertainty:    0.074ns
+
+  Clock Uncertainty:          0.074ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.129ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vga0/vgacolor_port_map/vmov_0 to vga0/vgacolor_port_map/vmov_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X53Y113.DQ     Tcko                  0.379   vga0/vgacolor_port_map/vmov<0>
+                                                       vga0/vgacolor_port_map/vmov_0
+    SLICE_X52Y115.C2     net (fanout=23)       0.784   vga0/vgacolor_port_map/vmov<0>
+    SLICE_X52Y115.C      Tilo                  0.105   vga0/vgacolor_port_map/vmov1<9>
+                                                       vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o1
+    SLICE_X52Y115.D4     net (fanout=1)        0.345   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o1
+    SLICE_X52Y115.DMUX   Tilo                  0.293   vga0/vgacolor_port_map/vmov1<9>
+                                                       vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o2
+    SLICE_X54Y113.C6     net (fanout=1)        0.348   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o2
+    SLICE_X54Y113.C      Tilo                  0.105   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o3
+                                                       vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o4
+    SLICE_X53Y113.SR     net (fanout=3)        0.407   vga0/vgacolor_port_map/PWR_21_o_vmov[9]_OR_49_o
+    SLICE_X53Y113.CLK    Tsrck                 0.352   vga0/vgacolor_port_map/vmov<0>
+                                                       vga0/vgacolor_port_map/vmov_3
+    -------------------------------------------------  ---------------------------
+    Total                                      3.118ns (1.234ns logic, 1.884ns route)
+                                                       (39.6% logic, 60.4% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: TS_system_clk_clkout0 = PERIOD TIMEGRP "system_clk_clkout0" TS_sys_clk_pin
+        HIGH 50%;
+--------------------------------------------------------------------------------
+
+Paths for end point vga0/vgacolor_port_map/vmov_4 (SLICE_X53Y114.A6), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.241ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               vga0/vgacolor_port_map/vmov_3 (FF)
+  Destination:          vga0/vgacolor_port_map/vmov_4 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.256ns (Levels of Logic = 1)
+  Clock Path Skew:      0.015ns (0.082 - 0.067)
+  Source Clock:         vga_clk rising at 10.000ns
+  Destination Clock:    vga_clk rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: vga0/vgacolor_port_map/vmov_3 to vga0/vgacolor_port_map/vmov_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X53Y113.CQ     Tcko                  0.141   vga0/vgacolor_port_map/vmov<0>
+                                                       vga0/vgacolor_port_map/vmov_3
+    SLICE_X53Y114.A6     net (fanout=10)       0.161   vga0/vgacolor_port_map/vmov<3>
+    SLICE_X53Y114.CLK    Tah         (-Th)     0.046   vga0/vgacolor_port_map/vmov<7>
+                                                       vga0/vgacolor_port_map/dmov[2]_vmov[9]_select_47_OUT<4>1
+                                                       vga0/vgacolor_port_map/vmov_4
+    -------------------------------------------------  ---------------------------
+    Total                                      0.256ns (0.095ns logic, 0.161ns route)
+                                                       (37.1% logic, 62.9% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point vga0/vgacolor_port_map/vmov1_7 (SLICE_X52Y114.CX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.259ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               vga0/vgacolor_port_map/vmov1_6 (FF)
+  Destination:          vga0/vgacolor_port_map/vmov1_7 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.259ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         vga_clk rising at 10.000ns
+  Destination Clock:    vga_clk rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: vga0/vgacolor_port_map/vmov1_6 to vga0/vgacolor_port_map/vmov1_7
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X52Y114.CQ     Tcko                  0.141   vga0/vgacolor_port_map/vmov1<7>
+                                                       vga0/vgacolor_port_map/vmov1_6
+    SLICE_X52Y114.CX     net (fanout=9)        0.096   vga0/vgacolor_port_map/vmov1<6>
+    SLICE_X52Y114.CLK    Tckdi       (-Th)    -0.022   vga0/vgacolor_port_map/vmov1<7>
+                                                       vga0/vgacolor_port_map/Mcount_vmov1_cy<7>
+                                                       vga0/vgacolor_port_map/vmov1_7
+    -------------------------------------------------  ---------------------------
+    Total                                      0.259ns (0.163ns logic, 0.096ns route)
+                                                       (62.9% logic, 37.1% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point vga0/vgacolor_port_map/vmov1_9 (SLICE_X52Y115.AX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.263ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               vga0/vgacolor_port_map/vmov1_8 (FF)
+  Destination:          vga0/vgacolor_port_map/vmov1_9 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.263ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         vga_clk rising at 10.000ns
+  Destination Clock:    vga_clk rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: vga0/vgacolor_port_map/vmov1_8 to vga0/vgacolor_port_map/vmov1_9
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X52Y115.AQ     Tcko                  0.141   vga0/vgacolor_port_map/vmov1<9>
+                                                       vga0/vgacolor_port_map/vmov1_8
+    SLICE_X52Y115.AX     net (fanout=7)        0.103   vga0/vgacolor_port_map/vmov1<8>
+    SLICE_X52Y115.CLK    Tckdi       (-Th)    -0.019   vga0/vgacolor_port_map/vmov1<9>
+                                                       vga0/vgacolor_port_map/Mcount_vmov1_xor<9>
+                                                       vga0/vgacolor_port_map/vmov1_9
+    -------------------------------------------------  ---------------------------
+    Total                                      0.263ns (0.160ns logic, 0.103ns route)
+                                                       (60.8% logic, 39.2% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_system_clk_clkout0 = PERIOD TIMEGRP "system_clk_clkout0" TS_sys_clk_pin
+        HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 8.182ns (period - min period limit)
+  Period: 10.000ns
+  Min period limit: 1.818ns (550.055MHz) (Tbcper_I(Fmax))
+  Physical resource: system_clk/clkout1_buf/I0
+  Logical resource: system_clk/clkout1_buf/I0
+  Location pin: BUFGCTRL_X0Y29.I0
+  Clock network: system_clk/clkout0
+--------------------------------------------------------------------------------
+Slack: 9.000ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 10.000ns
+  Low pulse: 5.000ns
+  Low pulse limit: 0.500ns (Tcl)
+  Physical resource: vga0/vgacolor_port_map/vmov1<3>/CLK
+  Logical resource: vga0/vgacolor_port_map/vmov1_0/CK
+  Location pin: SLICE_X52Y113.CLK
+  Clock network: vga_clk
+--------------------------------------------------------------------------------
+Slack: 9.000ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 10.000ns
+  High pulse: 5.000ns
+  High pulse limit: 0.500ns (Tch)
+  Physical resource: vga0/vgacolor_port_map/vmov1<3>/CLK
+  Logical resource: vga0/vgacolor_port_map/vmov1_0/CK
+  Location pin: SLICE_X52Y113.CLK
+  Clock network: vga_clk
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: TS_system_clk_clkout2 = PERIOD TIMEGRP "system_clk_clkout2" 
+TS_sys_clk_pin         HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 141 paths analyzed, 92 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is   2.262ns.
+--------------------------------------------------------------------------------
+
+Paths for end point key0/ps2_byte_buf_0 (SLICE_X55Y108.CE), 2 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     7.738ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               key0/ps2_clk_r0 (FF)
+  Destination:          key0/ps2_byte_buf_0 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      2.145ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.043ns (0.604 - 0.647)
+  Source Clock:         clk_key rising at 0.000ns
+  Destination Clock:    clk_key rising at 10.000ns
+  Clock Uncertainty:    0.074ns
+
+  Clock Uncertainty:          0.074ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.129ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: key0/ps2_clk_r0 to key0/ps2_byte_buf_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X71Y114.AQ     Tcko                  0.379   key0/ps2_clk_r1
+                                                       key0/ps2_clk_r0
+    SLICE_X70Y114.D1     net (fanout=2)        0.578   key0/ps2_clk_r0
+    SLICE_X70Y114.D      Tilo                  0.105   key0/ps2_clk_n
+                                                       key0/ps2_clk_n1
+    SLICE_X55Y108.CE     net (fanout=3)        0.915   key0/ps2_clk_n
+    SLICE_X55Y108.CLK    Tceck                 0.168   key0/ps2_byte_buf<3>
+                                                       key0/ps2_byte_buf_0
+    -------------------------------------------------  ---------------------------
+    Total                                      2.145ns (0.652ns logic, 1.493ns route)
+                                                       (30.4% logic, 69.6% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     8.186ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               key0/ps2_clk_r1 (FF)
+  Destination:          key0/ps2_byte_buf_0 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      1.697ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.043ns (0.604 - 0.647)
+  Source Clock:         clk_key rising at 0.000ns
+  Destination Clock:    clk_key rising at 10.000ns
+  Clock Uncertainty:    0.074ns
+
+  Clock Uncertainty:          0.074ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.129ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: key0/ps2_clk_r1 to key0/ps2_byte_buf_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X71Y114.BQ     Tcko                  0.379   key0/ps2_clk_r1
+                                                       key0/ps2_clk_r1
+    SLICE_X70Y114.D6     net (fanout=1)        0.130   key0/ps2_clk_r1
+    SLICE_X70Y114.D      Tilo                  0.105   key0/ps2_clk_n
+                                                       key0/ps2_clk_n1
+    SLICE_X55Y108.CE     net (fanout=3)        0.915   key0/ps2_clk_n
+    SLICE_X55Y108.CLK    Tceck                 0.168   key0/ps2_byte_buf<3>
+                                                       key0/ps2_byte_buf_0
+    -------------------------------------------------  ---------------------------
+    Total                                      1.697ns (0.652ns logic, 1.045ns route)
+                                                       (38.4% logic, 61.6% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point key0/ps2_byte_buf_1 (SLICE_X55Y108.CE), 2 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     7.738ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               key0/ps2_clk_r0 (FF)
+  Destination:          key0/ps2_byte_buf_1 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      2.145ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.043ns (0.604 - 0.647)
+  Source Clock:         clk_key rising at 0.000ns
+  Destination Clock:    clk_key rising at 10.000ns
+  Clock Uncertainty:    0.074ns
+
+  Clock Uncertainty:          0.074ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.129ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: key0/ps2_clk_r0 to key0/ps2_byte_buf_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X71Y114.AQ     Tcko                  0.379   key0/ps2_clk_r1
+                                                       key0/ps2_clk_r0
+    SLICE_X70Y114.D1     net (fanout=2)        0.578   key0/ps2_clk_r0
+    SLICE_X70Y114.D      Tilo                  0.105   key0/ps2_clk_n
+                                                       key0/ps2_clk_n1
+    SLICE_X55Y108.CE     net (fanout=3)        0.915   key0/ps2_clk_n
+    SLICE_X55Y108.CLK    Tceck                 0.168   key0/ps2_byte_buf<3>
+                                                       key0/ps2_byte_buf_1
+    -------------------------------------------------  ---------------------------
+    Total                                      2.145ns (0.652ns logic, 1.493ns route)
+                                                       (30.4% logic, 69.6% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     8.186ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               key0/ps2_clk_r1 (FF)
+  Destination:          key0/ps2_byte_buf_1 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      1.697ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.043ns (0.604 - 0.647)
+  Source Clock:         clk_key rising at 0.000ns
+  Destination Clock:    clk_key rising at 10.000ns
+  Clock Uncertainty:    0.074ns
+
+  Clock Uncertainty:          0.074ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.129ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: key0/ps2_clk_r1 to key0/ps2_byte_buf_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X71Y114.BQ     Tcko                  0.379   key0/ps2_clk_r1
+                                                       key0/ps2_clk_r1
+    SLICE_X70Y114.D6     net (fanout=1)        0.130   key0/ps2_clk_r1
+    SLICE_X70Y114.D      Tilo                  0.105   key0/ps2_clk_n
+                                                       key0/ps2_clk_n1
+    SLICE_X55Y108.CE     net (fanout=3)        0.915   key0/ps2_clk_n
+    SLICE_X55Y108.CLK    Tceck                 0.168   key0/ps2_byte_buf<3>
+                                                       key0/ps2_byte_buf_1
+    -------------------------------------------------  ---------------------------
+    Total                                      1.697ns (0.652ns logic, 1.045ns route)
+                                                       (38.4% logic, 61.6% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point key0/ps2_byte_buf_2 (SLICE_X55Y108.CE), 2 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     7.738ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               key0/ps2_clk_r0 (FF)
+  Destination:          key0/ps2_byte_buf_2 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      2.145ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.043ns (0.604 - 0.647)
+  Source Clock:         clk_key rising at 0.000ns
+  Destination Clock:    clk_key rising at 10.000ns
+  Clock Uncertainty:    0.074ns
+
+  Clock Uncertainty:          0.074ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.129ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: key0/ps2_clk_r0 to key0/ps2_byte_buf_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X71Y114.AQ     Tcko                  0.379   key0/ps2_clk_r1
+                                                       key0/ps2_clk_r0
+    SLICE_X70Y114.D1     net (fanout=2)        0.578   key0/ps2_clk_r0
+    SLICE_X70Y114.D      Tilo                  0.105   key0/ps2_clk_n
+                                                       key0/ps2_clk_n1
+    SLICE_X55Y108.CE     net (fanout=3)        0.915   key0/ps2_clk_n
+    SLICE_X55Y108.CLK    Tceck                 0.168   key0/ps2_byte_buf<3>
+                                                       key0/ps2_byte_buf_2
+    -------------------------------------------------  ---------------------------
+    Total                                      2.145ns (0.652ns logic, 1.493ns route)
+                                                       (30.4% logic, 69.6% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     8.186ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               key0/ps2_clk_r1 (FF)
+  Destination:          key0/ps2_byte_buf_2 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      1.697ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.043ns (0.604 - 0.647)
+  Source Clock:         clk_key rising at 0.000ns
+  Destination Clock:    clk_key rising at 10.000ns
+  Clock Uncertainty:    0.074ns
+
+  Clock Uncertainty:          0.074ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.129ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: key0/ps2_clk_r1 to key0/ps2_byte_buf_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X71Y114.BQ     Tcko                  0.379   key0/ps2_clk_r1
+                                                       key0/ps2_clk_r1
+    SLICE_X70Y114.D6     net (fanout=1)        0.130   key0/ps2_clk_r1
+    SLICE_X70Y114.D      Tilo                  0.105   key0/ps2_clk_n
+                                                       key0/ps2_clk_n1
+    SLICE_X55Y108.CE     net (fanout=3)        0.915   key0/ps2_clk_n
+    SLICE_X55Y108.CLK    Tceck                 0.168   key0/ps2_byte_buf<3>
+                                                       key0/ps2_byte_buf_2
+    -------------------------------------------------  ---------------------------
+    Total                                      1.697ns (0.652ns logic, 1.045ns route)
+                                                       (38.4% logic, 61.6% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: TS_system_clk_clkout2 = PERIOD TIMEGRP "system_clk_clkout2" TS_sys_clk_pin
+        HIGH 50%;
+--------------------------------------------------------------------------------
+
+Paths for end point key0/ps2_byte_4 (SLICE_X53Y108.A5), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.189ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               key0/ps2_byte_buf_4 (FF)
+  Destination:          key0/ps2_byte_4 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.202ns (Levels of Logic = 1)
+  Clock Path Skew:      0.013ns (0.071 - 0.058)
+  Source Clock:         clk_key rising at 10.000ns
+  Destination Clock:    clk_key rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: key0/ps2_byte_buf_4 to key0/ps2_byte_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X52Y108.AQ     Tcko                  0.141   key0/ps2_byte_buf<7>
+                                                       key0/ps2_byte_buf_4
+    SLICE_X53Y108.A5     net (fanout=3)        0.120   key0/ps2_byte_buf<4>
+    SLICE_X53Y108.CLK    Tah         (-Th)     0.059   key0/ps2_byte<3>
+                                                       key0/ps2_byte_buf<4>_rt
+                                                       key0/ps2_byte_4
+    -------------------------------------------------  ---------------------------
+    Total                                      0.202ns (0.082ns logic, 0.120ns route)
+                                                       (40.6% logic, 59.4% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point key0/ps2_byte_7 (SLICE_X53Y108.D5), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.189ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               key0/ps2_byte_buf_7 (FF)
+  Destination:          key0/ps2_byte_7 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.202ns (Levels of Logic = 1)
+  Clock Path Skew:      0.013ns (0.071 - 0.058)
+  Source Clock:         clk_key rising at 10.000ns
+  Destination Clock:    clk_key rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: key0/ps2_byte_buf_7 to key0/ps2_byte_7
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X52Y108.DQ     Tcko                  0.141   key0/ps2_byte_buf<7>
+                                                       key0/ps2_byte_buf_7
+    SLICE_X53Y108.D5     net (fanout=3)        0.119   key0/ps2_byte_buf<7>
+    SLICE_X53Y108.CLK    Tah         (-Th)     0.058   key0/ps2_byte<3>
+                                                       key0/ps2_byte_buf<7>_rt
+                                                       key0/ps2_byte_7
+    -------------------------------------------------  ---------------------------
+    Total                                      0.202ns (0.083ns logic, 0.119ns route)
+                                                       (41.1% logic, 58.9% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point key0/key_released (SLICE_X54Y108.A6), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.198ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               key0/ps2_byte_buf_4 (FF)
+  Destination:          key0/key_released (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.214ns (Levels of Logic = 1)
+  Clock Path Skew:      0.016ns (0.086 - 0.070)
+  Source Clock:         clk_key rising at 10.000ns
+  Destination Clock:    clk_key rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: key0/ps2_byte_buf_4 to key0/key_released
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X52Y108.AQ     Tcko                  0.141   key0/ps2_byte_buf<7>
+                                                       key0/ps2_byte_buf_4
+    SLICE_X54Y108.A6     net (fanout=3)        0.148   key0/ps2_byte_buf<4>
+    SLICE_X54Y108.CLK    Tah         (-Th)     0.075   key0/key_released
+                                                       key0/ps2_byte_buf[7]_PWR_37_o_equal_19_o<7>
+                                                       key0/key_released
+    -------------------------------------------------  ---------------------------
+    Total                                      0.214ns (0.066ns logic, 0.148ns route)
+                                                       (30.8% logic, 69.2% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_system_clk_clkout2 = PERIOD TIMEGRP "system_clk_clkout2" TS_sys_clk_pin
+        HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 8.182ns (period - min period limit)
+  Period: 10.000ns
+  Min period limit: 1.818ns (550.055MHz) (Tbcper_I(Fmax))
+  Physical resource: system_clk/clkout3_buf/I0
+  Logical resource: system_clk/clkout3_buf/I0
+  Location pin: BUFGCTRL_X0Y28.I0
+  Clock network: system_clk/clkout2
+--------------------------------------------------------------------------------
+Slack: 9.000ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 10.000ns
+  Low pulse: 5.000ns
+  Low pulse limit: 0.500ns (Tcl)
+  Physical resource: key0/ps2_byte<3>/CLK
+  Logical resource: key0/ps2_byte_4/CK
+  Location pin: SLICE_X53Y108.CLK
+  Clock network: clk_key
+--------------------------------------------------------------------------------
+Slack: 9.000ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 10.000ns
+  High pulse: 5.000ns
+  High pulse limit: 0.500ns (Tch)
+  Physical resource: key0/ps2_byte<3>/CLK
+  Logical resource: key0/ps2_byte_4/CK
+  Location pin: SLICE_X53Y108.CLK
+  Clock network: clk_key
+--------------------------------------------------------------------------------
+
+
+Derived Constraint Report
+Derived Constraints for TS_sys_clk_pin
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths Analyzed       |
+|           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|TS_sys_clk_pin                 |     10.000ns|      4.000ns|      3.282ns|            0|            0|            0|         3770|
+| TS_system_clk_clkout1         |     40.000ns|      3.890ns|          N/A|            0|            0|         3104|            0|
+| TS_system_clk_clkout0         |     10.000ns|      3.282ns|          N/A|            0|            0|          525|            0|
+| TS_system_clk_clkout2         |     10.000ns|      2.262ns|          N/A|            0|            0|          141|            0|
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock clk100mhz
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk100mhz      |    3.890|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 3770 paths, 0 nets, and 403 connections
+
+Design statistics:
+   Minimum period:   4.000ns{1}   (Maximum frequency: 250.000MHz)
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Thu Apr 16 22:10:07 2015 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 639 MB
+
+
+

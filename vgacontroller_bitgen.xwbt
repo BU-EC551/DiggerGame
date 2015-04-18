@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=X:\Desktop\551\vga\vgacontroller.ncd
+OUTFILE=X:\Desktop\551\vga\vgacontroller.bit
+FAMILY=Artix7
+PART=xc7a100t-2lcsg324
+WORKINGDIR=X:\Desktop\551\vga
+LICENSE=ISE
+USER_INFO=174135685_174135686_210570941_745

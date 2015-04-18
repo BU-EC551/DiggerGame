@@ -1,0 +1,3 @@
+# Output products list for <bg_ram>
+bg_ram.xco
+bg_ram_flist.txt

@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj vga -o D:/vga_game/vga/2.0/dg_vga_key/ps2_key.tfi -lib work D:/vga_game/vga/2.0/dg_vga_key//ps2_key.v -module ps2_key -template D:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

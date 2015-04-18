@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=X:\Desktop\vga_game\2.2\game_top.ncd
+OUTFILE=X:\Desktop\vga_game\2.2\game_top.bit
+FAMILY=Artix7
+PART=xc7a100t-2lcsg324
+WORKINGDIR=X:\Desktop\vga_game\2.2
+LICENSE=ISE
+USER_INFO=174135685_174135686_210570941_745
