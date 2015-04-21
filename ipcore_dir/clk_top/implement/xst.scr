@@ -1,9 +1,0 @@
-run
--ifmt MIXED
--top clk_top_exdes
--p xc7a100t-csg324-2l
--ifn xst.prj
--ofn clk_top_exdes
--keep_hierarchy soft 
--equivalent_register_removal no 
--max_fanout 65535
